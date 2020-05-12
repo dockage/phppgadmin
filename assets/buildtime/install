@@ -4,11 +4,11 @@ set -eux
 BUILD_PACKAGES_DEPENDENCIES=curl
 apk add --no-cache ${BUILD_PACKAGES_DEPENDENCIES}
 
-curl -SLO https://github.com/phppgadmin/phppgadmin/archive/master.zip
-unzip master.zip
-mv ./phppgadmin-master/* ${DOCKAGE_WEBROOT_DIR}
+curl -SL --output phpPgAdmin.zip https://github.com/phppgadmin/phppgadmin/releases/download/REL_7-12-1/phpPgAdmin-7.12.1.zip
+unzip phpPgAdmin.zip
+mv ./phpPgAdmin-7.12.1/* ${DOCKAGE_WEBROOT_DIR}
 mv ${DOCKAGE_WEBROOT_DIR}/conf/config.inc.php-dist ${DOCKAGE_WEBROOT_DIR}/conf/config.inc.php
 chown -R nginx:nginx ${DOCKAGE_WEBROOT_DIR}
 
-rm -rf master.zip phppgadmin-master
+rm -rf phpPgAdmin.zip phpPgAdmin-7.12.1
 apk del ${BUILD_PACKAGES_DEPENDENCIES}
