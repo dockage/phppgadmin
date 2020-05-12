@@ -9,7 +9,12 @@ LABEL maintainer="Mohammad Abdolirad <m.abdolirad@gmail.com>" \
 
 ADD ./assets ${DOCKAGE_ETC_DIR}
 
-RUN apk --no-cache --update add php5-pgsql postgresql \
+RUN apk del 'php5-*' \
+    && rm /usr/bin/php-fpm \
+    && apk --no-cache --update add php7-fpm php7-pgsql php7-session php7-mbstring postgresql \
+    && ln -s /usr/sbin/php-fpm7 /usr/bin/php-fpm \
+    && ln -s /etc/php7 /etc/php5 \
+    && runit-enable-service php-fpm \
     && ${DOCKAGE_ETC_DIR}/buildtime/install \
     && cp -ar ${DOCKAGE_ETC_DIR}/etc/* /etc \
     && rm -rf /var/cache/apk/* ${DOCKAGE_ETC_DIR}/etc ${DOCKAGE_ETC_DIR}/buildtime
