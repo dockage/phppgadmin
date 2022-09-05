@@ -112,3 +112,10 @@ docker rm phppgadmin
 ```bash
 docker run --name=phppgadmin -d [OPTIONS] dockage/phppgadmin:latest
 ```
+
+## Quick reference
+* Where to get help: [website](https://dockage.dev/), [documentation](https://dockage.dev/docs/)
+* GitHub repo: [dockage/phppgadmin](https://github.com/dockage/phppgadmin)
+* Where to file issues: [GitHub issues](https://github.com/dockage/phppgadmin/issues)
+* Maintained by: The Dockage team (info at dockage.dev)
+* License(s) - [license](https://github.com/dockage/phppgadmin/blob/main/LICENSE), check 3rd party documentation for license information
