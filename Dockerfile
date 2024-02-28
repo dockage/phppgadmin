@@ -9,7 +9,7 @@ LABEL maintainer="Mohammad Abdolirad <m.abdolirad@gmail.com>" \
 
 ADD ./assets ${DOCKAGE_ETC_DIR}
 
-RUN apk --no-cache --update add php5-pgsql postgresql \
+RUN apk --no-cache --update add php5-pgsql postgresql libpq \
     && ${DOCKAGE_ETC_DIR}/buildtime/install \
     && cp -ar ${DOCKAGE_ETC_DIR}/etc/* /etc \
     && rm -rf /var/cache/apk/* ${DOCKAGE_ETC_DIR}/etc ${DOCKAGE_ETC_DIR}/buildtime
